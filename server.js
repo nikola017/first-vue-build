@@ -3,14 +3,10 @@ const path = require("path");
 var cors = require("cors");
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 app.use(express.static('public'));
 app.use(cors());
 
-app.listen(8888, "localhost", function () {
-  console.log(
-    "Server listening on http://%s:%d in %s mode...",
-    this.address().address,
-    this.address().port,
-    app.settings.env
-  );
-});
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
